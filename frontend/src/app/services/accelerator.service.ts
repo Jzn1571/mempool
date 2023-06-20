@@ -4,7 +4,14 @@ import { StateService } from './state.service';
 import { Observable, of } from 'rxjs';
 
 export interface Acceleration {
-  txid: string
+  txid: string,
+  feeDelta: number,
+  added: number,
+  pools: string,
+  status: string,
+  feePaid: number,
+  baseFee: number,
+  vsizeFee: number,
 }
 
 @Injectable({

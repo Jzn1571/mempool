@@ -1,7 +1,61 @@
-test
+<div class="container-xl" style="min-height: 335px" [ngClass]="{'widget': widget, 'full-height': !widget}">
+  <h1 *ngIf="!widget" class="float-left" i18n="">Latest accelerations</h1>
+  <div *ngIf="!widget && isLoading" class="spinner-border ml-3" role="status"></div>
 
-<div *ngIf="accelerationSubscription | async as accelerations">
-  <div *ngFor="let acceleration of accelerations">
-    {{ acceleration.txid }}
+  <div class="clearfix"></div>
+
+  <div style="min-height: 295px">
+    <table class="table table-borderless">
+
+      <thead>
+        <th class="txid">Txid</th>
+        <th class="status">Status</th>
+        <th class="fee-delta">Fee delta</th>
+        <th class="total-fee">Total fee</th> <!-- Only shown in small screen -->
+        <th class="fee">Tx fee</th>
+        <th class="fee">Service fee</th>
+        <th class="fee">Block space fee</th>
+        <th class="date">Requested</th>
+      </thead>
+
+      <tbody *ngIf="accelerationSubscription | async as accelerations; else skeleton" [style]="isLoading ? 'opacity: 0.75' : ''">
+        <tr *ngFor="let accel of accelerations; let i = index; trackBy: trackByFn">
+          <td class="txid">
+            <app-truncate [text]="accel.txid" [lastChars]="6" [link]="['/tx/' | relativeUrl, accel.txid]"></app-truncate>
+          </td>
+          <td class="status">{{ accel.status }}</td>
+          <td class="fee-delta">
+            <app-sats [satoshis]="accel.feeDelta" digitsInfo="1.0-2"></app-sats>
+          </td>
+          <td class="total-fee"> <!-- Only shown in small screen -->
+            <app-sats [satoshis]="accel.totalFee" digitsInfo="1.0-2"></app-sats>
+          </td>
+          <td class="fee">
+            <app-sats [satoshis]="accel.feePaid" digitsInfo="1.0-2"></app-sats>
+          </td>
+          <td class="fee">
+            <app-sats [satoshis]="accel.baseFee" digitsInfo="1.0-2"></app-sats>
+          </td>
+          <td class="fee">
+            <app-sats [satoshis]="accel.vsizeFee" digitsInfo="1.0-2"></app-sats>
+          </td>
+          <td class="date">{{ accel.added | date:'yyyy-MM-dd HH:mm' }}</td>
+        </tr>
+      </tbody>
+
+      <ng-template #skeleton>
+        <tbody>
+          <tr *ngFor="let item of skeletonLines">
+            <td>
+              <span class="skeleton-loader"></span>
+            </td>
+          </tr>
+        </tbody>
+      </ng-template>
+    
+    </table>
   </div>
+
 </div>
+
+
