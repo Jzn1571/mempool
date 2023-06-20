@@ -22,6 +22,7 @@ import { MiningDashboardComponent } from '../components/mining-dashboard/mining-
 import { HashrateChartComponent } from '../components/hashrate-chart/hashrate-chart.component';
 import { HashrateChartPoolsComponent } from '../components/hashrates-chart-pools/hashrate-chart-pools.component';
 import { BlockHealthGraphComponent } from '../components/block-health-graph/block-health-graph.component';
+import { LatestAccelerationComponent } from '../accelerator/latest-acceleration/latest-acceleration.component';
 import { CommonModule } from '@angular/common';
 
 @NgModule({
@@ -47,6 +48,8 @@ import { CommonModule } from '@angular/common';
     HashrateChartComponent,
     HashrateChartPoolsComponent,
     BlockHealthGraphComponent,
+
+    LatestAccelerationComponent,
   ],
   imports: [
     CommonModule,

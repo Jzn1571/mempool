@@ -1,0 +1,7 @@
+test
+
+<div *ngIf="accelerationSubscription | async as accelerations">
+  <div *ngFor="let acceleration of accelerations">
+    {{ acceleration.txid }}
+  </div>
+</div>

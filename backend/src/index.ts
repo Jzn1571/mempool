@@ -30,7 +30,7 @@ import generalLightningRoutes from './api/explorer/general.routes';
 import lightningStatsUpdater from './tasks/lightning/stats-updater.service';
 import networkSyncService from './tasks/lightning/network-sync.service';
 import statisticsRoutes from './api/statistics/statistics.routes';
-import miningRoutes from './api/mining/mining-routes';
+import miningRoutes from './api/mining/mining.routes';
 import bisqRoutes from './api/bisq/bisq.routes';
 import liquidRoutes from './api/liquid/liquid.routes';
 import bitcoinRoutes from './api/bitcoin/bitcoin.routes';

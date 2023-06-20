@@ -46,6 +46,8 @@ export interface Env {
   SIGNET_BLOCK_AUDIT_START_HEIGHT: number;
   FULL_RBF_ENABLED: boolean;
   HISTORICAL_PRICE: boolean;
+  ACCELERATOR: boolean;
+  MEMPOOL_SERVICES_API: string;
 }
 
 const defaultEnv: Env = {
@@ -77,6 +79,8 @@ const defaultEnv: Env = {
   'SIGNET_BLOCK_AUDIT_START_HEIGHT': 0,
   'FULL_RBF_ENABLED': false,
   'HISTORICAL_PRICE': true,
+  'ACCELERATOR': false,
+  'MEMPOOL_SERVICES_API': ''
 };
 
 @Injectable({

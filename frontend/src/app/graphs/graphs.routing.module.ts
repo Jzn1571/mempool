@@ -24,6 +24,7 @@ import { NodesPerISPChartComponent } from '../lightning/nodes-per-isp-chart/node
 import { NodesPerCountryChartComponent } from '../lightning/nodes-per-country-chart/nodes-per-country-chart.component';
 import { NodesMap } from '../lightning/nodes-map/nodes-map.component';
 import { NodesChannelsMap } from '../lightning/nodes-channels-map/nodes-channels-map.component';
+import { LatestAccelerationComponent } from '../accelerator/latest-acceleration/latest-acceleration.component';
 
 const browserWindow = window || {};
 // @ts-ignore
@@ -48,6 +49,24 @@ const routes: Routes = [
           {
             path: '',
             component: MiningDashboardComponent,
+          },
+        ]
+      },
+      {
+        path: 'accelerator',
+        data: { networks: ['bitcoin'] },
+        children: [
+          {
+            path: 'latest',
+            component: LatestAccelerationComponent,
+          },
+          {
+            path: '',
+            component: StartComponent,
+            // children: [{
+            //   path: '',
+            //   component: '', // TODO - Accelerator dashboard
+            // }]
           },
         ]
       },

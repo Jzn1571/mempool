@@ -1,6 +1,6 @@
 import { query } from '../../utils/axios-query';
 import config from '../../config';
-import { BlockExtended, PoolTag } from '../../mempool.interfaces';
+import { BlockExtended } from '../../mempool.interfaces';
 
 export interface Acceleration {
   txid: string,

@@ -23,5 +23,6 @@
   "SIGNET_BLOCK_AUDIT_START_HEIGHT": 0,
   "LIGHTNING": false,
   "FULL_RBF_ENABLED": false,
-  "HISTORICAL_PRICE": true
+  "HISTORICAL_PRICE": true,
+  "ACCELERATOR": false
 }
